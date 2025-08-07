@@ -2,7 +2,9 @@
 #include <iostream>
 #include <iomanip>
 #include <cctype>
+#include <limits>
 #include <exception>
+
 
 bool ScalarConverter::isChar(const std::string& str)
 {
@@ -116,11 +118,15 @@ void ScalarConverter::printFloat(float value)
 		std::cout << "char: '" << static_cast<char>(value) << "'\n";
 	else
 		std::cout << "char: Non displayable\n";
-
-	std::cout << "int: " << static_cast<int>(value) << "\n";
+	if (value >= std::numeric_limits<int>::max() ||
+		value <= std::numeric_limits<int>::min())
+		std::cout << "int: INT limit\n";
+	else
+		std::cout << "int: " << static_cast<int>(value) << "\n";
 	std::cout << "float: " << std::fixed << std::setprecision(1) << value << "f\n";
 	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(value) << "\n";
 }
+
 
 void ScalarConverter::printDouble(double value)
 {
@@ -129,7 +135,11 @@ void ScalarConverter::printDouble(double value)
 	else
 		std::cout << "char: Non displayable\n";
 
-	std::cout << "int: " << static_cast<int>(value) << "\n";
+	if (value >= std::numeric_limits<int>::max() ||
+		value <= std::numeric_limits<int>::min())
+		std::cout << "int: INT limit\n";
+	else
+		std::cout << "int: " << static_cast<int>(value) << "\n";
 	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f\n";
 	std::cout << "double: " << std::fixed << std::setprecision(1) << value << "\n";
 }

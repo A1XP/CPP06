@@ -1,5 +1,5 @@
-NAME = convert
-SRCS = main.cpp ScalarConverter.cpp
+NAME = serializer
+SRCS = main.cpp Serializer.cpp
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++23
 

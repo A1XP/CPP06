@@ -6,6 +6,8 @@
 class ScalarConverter
 {
 public:
+	static void convert(const std::string& str);
+private:
 	enum LiteralType {
 		CHAR,
 		INT,
@@ -15,9 +17,6 @@ public:
 		INVALID
 	};
 
-	static void convert(const std::string& str);
-
-private:
 	ScalarConverter() = default;
 	~ScalarConverter() = default;
 	ScalarConverter(const ScalarConverter& other) = default;
